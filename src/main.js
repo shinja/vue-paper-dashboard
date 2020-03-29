@@ -18,6 +18,7 @@ import App from "./App";
 import router from "./router/index";
 
 import PaperDashboard from "./plugins/paperDashboard";
+import store from "./plugins/vuex";
 import "vue-notifyjs/themes/default.css";
 
 Vue.use(PaperDashboard);
@@ -25,5 +26,6 @@ Vue.use(PaperDashboard);
 /* eslint-disable no-new */
 new Vue({
   router,
+  store,
   render: h => h(App)
 }).$mount("#app");

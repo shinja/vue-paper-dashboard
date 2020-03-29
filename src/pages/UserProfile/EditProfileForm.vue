@@ -16,7 +16,7 @@
             <fg-input type="text"
                       label="Username"
                       placeholder="Username"
-                      v-model="user.username">
+                      v-model="account">
             </fg-input>
           </div>
           <div class="col-md-4">
@@ -50,7 +50,7 @@
             <fg-input type="text"
                       label="Address"
                       placeholder="Home Address"
-                      v-model="user.address">
+                      v-model="token">
             </fg-input>
           </div>
         </div>
@@ -104,6 +104,8 @@
   </card>
 </template>
 <script>
+import { mapFields } from 'vuex-map-fields'
+
 export default {
   data() {
     return {
@@ -124,6 +126,12 @@ export default {
     updateProfile() {
       alert("Your data: " + JSON.stringify(this.user));
     }
+  },
+  computed: {
+    ...mapFields('profile', {
+      account: 'account',
+      token: 'token'
+    }),
   }
 };
 </script>
