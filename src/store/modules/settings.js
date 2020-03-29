@@ -1,55 +1,41 @@
-import { getField, updateField } from "vuex-map-fields";
+import { getField, updateField } from 'vuex-map-fields'
 import VuexPersist from "vuex-persist";
 import localforage from "localforage";
 
 const initialState = () => {
-  return {
-    account: null,
-    exp: null,
-    iat: null,
-    token: null
-  };
-};
-export const state = initialState();
-
-export const actions = {
-  reset({ commit }) {
-    commit("reset");
-  }
-};
+    return {
+        lang: null,
+    }
+}
+export const state = initialState()
 
 export const mutations = {
-  updateField,
-
-  reset(state) {
-    Object.assign(state, initialState());
-  }
-};
+    updateField,
+}
 
 export const getters = {
-  getField
-};
+    getField
+}
 
 const presist = new VuexPersist({
-  key: "profile",
+  key: "settings",
   storage: localforage.createInstance({
     name: "vuex",
-    driver: localforage.INDEXEDDB
+    driver: localforage.LOCALSTORAGE
   }),
   asyncStorage: true,
   // Function that passes the state and returns the state with only the objects you want to store.
   reducer: state => ({
-    profile: state.profile
+    settings: state.settings
   })
   // Function that passes a mutation and lets you decide if it should update the state in localStorage.
   // filter: mutation => (true)
 });
 
 export default {
-  namespaced: true,
-  state,
-  actions,
-  mutations,
-  getters,
-  plugin: presist.plugin
-};
+    namespaced: true,
+    state,
+    mutations,
+    getters,
+    plugin: presist.plugin
+}
