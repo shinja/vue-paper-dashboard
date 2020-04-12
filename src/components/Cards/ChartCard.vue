@@ -3,12 +3,12 @@
     <template slot="header">
       <h4 v-if="$slots.title || title" class="card-title">
         <slot name="title">
-          {{title}}
+          {{ title }}
         </slot>
       </h4>
       <p class="card-category">
         <slot name="subTitle">
-          {{subTitle}}
+          {{ subTitle }}
         </slot>
       </p>
     </template>
@@ -18,45 +18,43 @@
         <div class="chart-legend">
           <slot name="legend"></slot>
         </div>
-        <hr>
+        <hr />
         <div class="stats">
           <slot name="footer"></slot>
         </div>
-        <div class="pull-right">
-        </div>
+        <div class="pull-right"></div>
       </div>
     </div>
-
   </card>
 </template>
 <script>
-import Card from "./Card.vue";
+import Card from './Card.vue'
 export default {
-  name: "chart-card",
+  name: 'chart-card',
   components: {
     Card
   },
   props: {
     footerText: {
       type: String,
-      default: ""
+      default: ''
     },
     title: {
       type: String,
-      default: ""
+      default: ''
     },
     subTitle: {
       type: String,
-      default: ""
+      default: ''
     },
     chartType: {
       type: String,
-      default: "Line" // Line | Pie | Bar
+      default: 'Line' // Line | Pie | Bar
     },
     chartOptions: {
       type: Object,
       default: () => {
-        return {};
+        return {}
       }
     },
     chartData: {
@@ -65,49 +63,44 @@ export default {
         return {
           labels: [],
           series: []
-        };
+        }
       }
     }
   },
   data() {
     return {
-      chartId: "no-id"
-    };
+      chartId: 'no-id'
+    }
   },
   methods: {
     /***
      * Initializes the chart by merging the chart options sent via props and the default chart options
      */
     initChart(Chartist) {
-      const chartIdQuery = `#${this.chartId}`;
-      Chartist[this.chartType](
-        chartIdQuery,
-        this.chartData,
-        this.chartOptions
-      );
+      const chartIdQuery = `#${this.chartId}`
+      Chartist[this.chartType](chartIdQuery, this.chartData, this.chartOptions)
     },
     /***
      * Assigns a random id to the chart
      */
     updateChartId() {
-      const currentTime = new Date().getTime().toString();
-      const randomInt = this.getRandomInt(0, currentTime);
-      this.chartId = `div_${randomInt}`;
+      const currentTime = new Date().getTime().toString()
+      const randomInt = this.getRandomInt(0, currentTime)
+      this.chartId = `div_${randomInt}`
     },
     getRandomInt(min, max) {
-      return Math.floor(Math.random() * (max - min + 1)) + min;
+      return Math.floor(Math.random() * (max - min + 1)) + min
     }
   },
   mounted() {
-    this.updateChartId();
-    import('chartist').then((Chartist) => {
-      let ChartistLib = Chartist.default || Chartist ;
+    this.updateChartId()
+    import('chartist').then(Chartist => {
+      let ChartistLib = Chartist.default || Chartist
       this.$nextTick(() => {
-        this.initChart(ChartistLib);
-      });
-    });
+        this.initChart(ChartistLib)
+      })
+    })
   }
-};
+}
 </script>
-<style>
-</style>
+<style></style>

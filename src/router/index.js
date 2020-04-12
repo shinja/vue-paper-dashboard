@@ -1,15 +1,15 @@
-import Vue from "vue";
-import VueRouter from "vue-router";
-import routes from "./routes";
-import store from '@/plugins/vuex';
+import Vue from 'vue'
+import VueRouter from 'vue-router'
+import routes from './routes'
+import store from '@/plugins/vuex'
 
-Vue.use(VueRouter);
+Vue.use(VueRouter)
 
 // configure router
 const router = new VueRouter({
   routes, // short for routes: routes
-  linkActiveClass: "active"
-});
+  linkActiveClass: 'active'
+})
 
 /**
  * https://github.com/championswimmer/vuex-persist#how-to-know-when-async-store-has-been-replaced
@@ -24,5 +24,4 @@ const waitForStorageToBeReady = async (to, from, next) => {
 }
 router.beforeEach(waitForStorageToBeReady)
 
-
-export default router;
+export default router

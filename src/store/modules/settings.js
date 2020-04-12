@@ -1,26 +1,26 @@
 import { getField, updateField } from 'vuex-map-fields'
-import VuexPersist from "vuex-persist";
-import localforage from "localforage";
+import VuexPersist from 'vuex-persist'
+import localforage from 'localforage'
 
 const initialState = () => {
-    return {
-        lang: null,
-    }
+  return {
+    lang: null
+  }
 }
 export const state = initialState()
 
 export const mutations = {
-    updateField,
+  updateField
 }
 
 export const getters = {
-    getField
+  getField
 }
 
 const presist = new VuexPersist({
-  key: "settings",
+  key: 'settings',
   storage: localforage.createInstance({
-    name: "vuex",
+    name: 'vuex',
     driver: localforage.LOCALSTORAGE
   }),
   asyncStorage: true,
@@ -30,12 +30,12 @@ const presist = new VuexPersist({
   })
   // Function that passes a mutation and lets you decide if it should update the state in localStorage.
   // filter: mutation => (true)
-});
+})
 
 export default {
-    namespaced: true,
-    state,
-    mutations,
-    getters,
-    plugin: presist.plugin
+  namespaced: true,
+  state,
+  mutations,
+  getters,
+  plugin: presist.plugin
 }

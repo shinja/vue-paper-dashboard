@@ -10,14 +10,14 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <router-link :to="{path:'/'}" class="navbar-brand">Site title</router-link>
+          <router-link :to="{ path: '/' }" class="navbar-brand">Site title</router-link>
         </div>
-  
+
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="navigation-example-2">
           <ul class="nav navbar-nav navbar-right">
             <li>
-              <router-link :to="{path:'/'}">Home</router-link>
+              <router-link :to="{ path: '/' }">Home</router-link>
             </li>
           </ul>
         </div>
@@ -42,10 +42,10 @@
         <nav class="pull-left">
           <ul>
             <li>
-              <router-link :to="{path:'/'}">Home</router-link>
+              <router-link :to="{ path: '/' }">Home</router-link>
             </li>
             <li>
-              <router-link :to="{path:'/register'}">Register</router-link>
+              <router-link :to="{ path: '/register' }">Register</router-link>
             </li>
           </ul>
         </nav>
@@ -59,5 +59,5 @@
 </template>
 
 <script>
-export default {};
+export default {}
 </script>

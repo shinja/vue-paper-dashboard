@@ -7,7 +7,6 @@ function formatter(logger, method, args) {
 }
 ulog.formats.push(formatter) // from here on, our format is used
 
-
 const logger = ulog('app')
 logger.level = process.env.NODE_ENV === 'development' ? 'debug' : 'error'
 

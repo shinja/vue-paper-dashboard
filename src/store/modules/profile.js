@@ -1,6 +1,6 @@
-import { getField, updateField } from "vuex-map-fields";
-import VuexPersist from "vuex-persist";
-import localforage from "localforage";
+import { getField, updateField } from 'vuex-map-fields'
+import VuexPersist from 'vuex-persist'
+import localforage from 'localforage'
 
 const initialState = () => {
   return {
@@ -8,32 +8,32 @@ const initialState = () => {
     exp: null,
     iat: null,
     token: null
-  };
-};
-export const state = initialState();
+  }
+}
+export const state = initialState()
 
 export const actions = {
   reset({ commit }) {
-    commit("reset");
+    commit('reset')
   }
-};
+}
 
 export const mutations = {
   updateField,
 
   reset(state) {
-    Object.assign(state, initialState());
+    Object.assign(state, initialState())
   }
-};
+}
 
 export const getters = {
   getField
-};
+}
 
 const presist = new VuexPersist({
-  key: "profile",
+  key: 'profile',
   storage: localforage.createInstance({
-    name: "vuex",
+    name: 'vuex',
     driver: localforage.INDEXEDDB
   }),
   asyncStorage: true,
@@ -43,7 +43,7 @@ const presist = new VuexPersist({
   })
   // Function that passes a mutation and lets you decide if it should update the state in localStorage.
   // filter: mutation => (true)
-});
+})
 
 export default {
   namespaced: true,
@@ -52,4 +52,4 @@ export default {
   mutations,
   getters,
   plugin: presist.plugin
-};
+}

@@ -1,14 +1,14 @@
-import Vue from "vue";
-import Vuex from "vuex";
-import profile from "./modules/profile";
-import settings from "./modules/settings";
-import createLogger from "vuex/dist/logger";
+import Vue from 'vue'
+import Vuex from 'vuex'
+import profile from './modules/profile'
+import settings from './modules/settings'
+import createLogger from 'vuex/dist/logger'
 
-Vue.use(Vuex);
+Vue.use(Vuex)
 
 const logger = createLogger({
   collapsed: false // auto-expand logged mutations
-});
+})
 
 const store = new Vuex.Store({
   /**
@@ -17,14 +17,10 @@ const store = new Vuex.Store({
    **/
   modules: {
     profile,
-    settings,
+    settings
   },
-  strict: process.env.NODE_ENV !== "production",
-  plugins: [
-    process.env.NODE_ENV !== "production" && logger,
-    profile.plugin,
-    settings.plugin
-  ]
-});
+  strict: process.env.NODE_ENV !== 'production',
+  plugins: [process.env.NODE_ENV !== 'production' && logger, profile.plugin, settings.plugin]
+})
 
-export default store;
+export default store
