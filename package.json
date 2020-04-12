@@ -15,6 +15,7 @@
     "chartist": "^0.11.0",
     "es6-promise": "^4.2.4",
     "localforage": "^1.7.3",
+    "ulog": "^2.0.0-beta.7",
     "vue": "^2.6.10",
     "vue-clickaway": "^2.1.0",
     "vue-notifyjs": "^0.3.0",

@@ -155,15 +155,15 @@ export default {
   },
 
   mounted() {
-    console.log(this.account, this.lang);
+    this.$logger(this.account, this.lang);
   },
 
   watch: {
     account(val, oval) {
-      console.log('account', oval, val);
+      this.$logger('account', oval, val);
     },
     lang(val, oval) {
-      console.log('lang', oval, val);
+      this.$logger('lang', oval, val);
     }
   }
 };

@@ -19,6 +19,7 @@ import router from "./router/index";
 
 import PaperDashboard from "./plugins/paperDashboard";
 import store from "./plugins/vuex";
+import "@/plugins/logger.js";
 import "vue-notifyjs/themes/default.css";
 
 Vue.use(PaperDashboard);
